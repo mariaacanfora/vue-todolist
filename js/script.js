@@ -11,7 +11,7 @@ new Vue({
                 checked: false,
 
             }
-        ]
+        ],
     },
 
     methods: {
@@ -32,7 +32,13 @@ new Vue({
             this.tasksList.splice(elementIndex, 1);
         },
 
+        getUndoneList(){
+            return this.tasksList.filter((element) => {
+                return !element.checked
+            })
+        }
     
     }
 
 })
+
