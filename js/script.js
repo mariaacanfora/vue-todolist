@@ -4,7 +4,14 @@ new Vue({
     el: "#root",
     data: {
         addedItem: "",
-        tasksList: ["Fare la spesa"],
+        colorItem: "#ff0000",
+        tasksList: [
+            {
+                title: "fare la spesa",
+                checked: false,
+
+            }
+        ]
     },
 
     methods: {
@@ -12,7 +19,11 @@ new Vue({
         onClickAdd() {
             
             if (!this.tasksList.includes(this.addedItem.toLowerCase()) && this.addedItem != ""){
-                this.tasksList.push(this.addedItem.toLowerCase());
+                this.tasksList.push({
+                    title: this.addedItem.toLowerCase(),
+                    borderColor: `border-color: ${this.colorItem} !important`,
+                    checked: false,
+                });
             }
             this.addedItem = "";
         },
@@ -20,6 +31,8 @@ new Vue({
         onClickClose(elementIndex){
             this.tasksList.splice(elementIndex, 1);
         },
+
+    
     }
 
 })
